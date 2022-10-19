@@ -34,7 +34,18 @@ public class JavaMainClass {
         list2.addNodeAsc(4);
         System.out.println("List next\n"
                 + list2.listNext());
-        
+        DoubleList list3 = new DoubleList();
+        list3.addNodeDesc(1);
+        list3.addNodeDesc(4);
+        list3.addNodeDesc(0);
+        list3.addNodeDesc(10);
+        list3.addNodeDesc(9);
+        list3.addNodeDesc(5);
+        list3.addNodeDesc(3);
+        list3.addNodeDesc(2);
+        list3.addNodeDesc(7);
+        System.out.println("List next\n"
+                + list3.listNext());
         
 }
     
