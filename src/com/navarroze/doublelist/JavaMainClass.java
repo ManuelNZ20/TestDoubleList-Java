@@ -11,6 +11,9 @@ public class JavaMainClass {
         list1.addStart(2);
         list1.addStart(0);
         list1.addStart(5);
+        list1.addEnd(10);
+        list1.addEnd(20);
+        list1.addEnd(15);
         System.out.println("List next\n"
                 + list1.listNext());
         System.out.println("List previous\n"
