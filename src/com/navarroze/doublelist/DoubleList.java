@@ -110,6 +110,46 @@ public class DoubleList {
             i = i.getNext();
         }
     }
+    
+    public void addNodeAsc(int date){
+        Node newnode = new Node(date);
+        if (isEmpty()) {
+            start = end = newnode;
+        }else if(newnode.getDate()<start.getDate()){
+            start.setPrevious(newnode);
+            newnode.setNext(start);
+            start = newnode;
+        }else{
+            Node cur = start.getNext(),prev = null;
+            boolean enc = false;
+            while(cur!=null&&!enc){/// 1 4 5 7 8 10
+                if (cur.getDate()>newnode.getDate()) {
+                    if(prev==null)
+                    {
+                        start.setNext(newnode);
+                        newnode.setPrevious(start);
+                        newnode.setNext(cur);
+                        cur.setPrevious(newnode);
+                    }else{
+                        newnode.setPrevious(prev);
+                        prev.setNext(newnode);
+                        newnode.setNext(cur);
+                        cur.setPrevious(newnode);
+                    }
+                    enc = true;
+                }else{
+                    prev = cur;
+                    cur = cur.getNext();
+                }
+            }
+            if (!enc) {
+                end.setNext(newnode);
+                newnode.setPrevious(end);
+                end = newnode;
+            }
+        }
+    }
+    
     public String listNext() {
         String list = "null <-> ";
         for (Node i = start; i != null;) {

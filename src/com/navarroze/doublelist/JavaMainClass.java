@@ -18,22 +18,24 @@ public class JavaMainClass {
         list1.addEnd(15);
         list1.addEnd(1);
         list1.addEnd(1);
-        list1.ordered();
         System.out.println("List next\n"
                 + list1.listNext());
         list1.removeNode(1);
-        list1.ordered();
         System.out.println("List next\n"
                 + list1.listNext());
-//        list1.removeStart();
-//        list1.removeStart();
-//        list1.removeStart();
-//        list1.removeEnd();
-//        list1.removeEnd();
-//        System.out.println("New List next\n"
-//                + list1.listNext());
-//        System.out.println("List previous\n"
-//                + list1.listPrevious());
-    }
+        DoubleList list2 = new DoubleList();
+        list2.addNodeAsc(5);
+        list2.addNodeAsc(1);
+        list2.addNodeAsc(0);
+        list2.addNodeAsc(6);
+        list2.addNodeAsc(3);
+        list2.addNodeAsc(2);
+        list2.addNodeAsc(9);
+        list2.addNodeAsc(4);
+        System.out.println("List next\n"
+                + list2.listNext());
+        
+        
+}
     
 }
