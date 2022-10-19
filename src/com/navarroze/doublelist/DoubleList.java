@@ -35,30 +35,65 @@ public class DoubleList {
             end = newnode;
         }
     }
-    
-    public void removeStart()
-    {
-        if (start==end) {
+
+    public void removeStart() {
+        if (start == end) {
             start = end = null;
-        }else{
+        } else {
             Node aux = start;
             start = start.getNext();
             start.setPrevious(null);
             aux.setNext(null);
         }
     }
-    
-    public void removeEnd(){
-        if (start==end) {
+
+    public void removeEnd() {
+        if (start == end) {
             start = end = null;
-        }else{
+        } else {
             Node aux = end;
             end = end.getPrevious();
             end.setNext(null);
             aux.setPrevious(null);
         }
     }
-    
+
+    public void removeNode(int date) {
+        Node i = start, j = null, aux = null;
+        while (i != null) {
+            if (i.getDate() == date) {
+                if (j == null) {
+                    if (start == end) {
+                        start = end = null;
+                    } else {
+                        aux = start;
+                        start = start.getNext();
+                        start.setPrevious(null);
+                        aux.setNext(null);
+                    }
+                    i = start;
+                    j = null;
+                } else {
+                    aux = i;
+                    if (i == end) {
+                        end = j;
+                        end.setNext(null);
+                        i = null;
+                    } else {
+                        i = i.getNext();
+                        i.setPrevious(j);
+                        j.setNext(i);
+                    }
+                    aux.setNext(null);
+                    aux.setPrevious(null);
+                }
+            } else {
+                j = i;
+                i = i.getNext();
+            }
+        }
+    }
+
     public String listNext() {
         String list = "null <-> ";
         for (Node i = start; i != null;) {
