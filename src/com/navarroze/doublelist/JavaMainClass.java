@@ -19,6 +19,8 @@ public class JavaMainClass {
         list1.removeStart();
         list1.removeStart();
         list1.removeStart();
+        list1.removeEnd();
+        list1.removeEnd();
         System.out.println("New List next\n"
                 + list1.listNext());
 //        System.out.println("List previous\n"
