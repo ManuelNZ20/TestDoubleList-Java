@@ -94,13 +94,13 @@ public class DoubleList {
         }
     }
 
-    public void ordered(){
+    public void ordered() {
         int aux = 0;
-        Node i = start,j;
-        while(i!=null){
+        Node i = start, j;
+        while (i != null) {
             j = i.getNext();
-            while(j!=null){
-                if (i.getDate()>j.getDate()) {
+            while (j != null) {
+                if (i.getDate() > j.getDate()) {
                     aux = i.getDate();
                     i.setDate(j.getDate());
                     j.setDate(aux);
@@ -110,34 +110,33 @@ public class DoubleList {
             i = i.getNext();
         }
     }
-    
-    public void addNodeAsc(int date){
+
+    public void addNodeAsc(int date) {
         Node newnode = new Node(date);
         if (isEmpty()) {
             start = end = newnode;
-        }else if(newnode.getDate()<start.getDate()){
+        } else if (newnode.getDate() < start.getDate()) {
             start.setPrevious(newnode);
             newnode.setNext(start);
             start = newnode;
-        }else{
-            Node cur = start.getNext(),prev = null;
+        } else {
+            Node cur = start.getNext(), prev = null;
             boolean enc = false;
-            while(cur!=null&&!enc){/// 1 4 5 7 8 10
-                if (cur.getDate()>newnode.getDate()) {
-                    if(prev==null)
-                    {
+            while (cur != null && !enc) {/// 1 4 5 7 8 10
+                enc = cur.getDate() > newnode.getDate();
+                if (enc) {
+                    if (prev == null) {
                         start.setNext(newnode);
                         newnode.setPrevious(start);
                         newnode.setNext(cur);
                         cur.setPrevious(newnode);
-                    }else{
+                    } else {
                         newnode.setPrevious(prev);
                         prev.setNext(newnode);
                         newnode.setNext(cur);
                         cur.setPrevious(newnode);
                     }
-                    enc = true;
-                }else{
+                } else {
                     prev = cur;
                     cur = cur.getNext();
                 }
@@ -149,33 +148,33 @@ public class DoubleList {
             }
         }
     }
-    
-    public void addNodeDesc(int date){
+
+    public void addNodeDesc(int date) {
         Node newnode = new Node(date);
         if (isEmpty()) {
             start = end = newnode;
-        }else if(start.getDate()<newnode.getDate()){
+        } else if (start.getDate() < newnode.getDate()) {
             newnode.setNext(start);
             start.setPrevious(newnode);
             start = newnode;
-        }else{
+        } else {
             Node cr = start.getNext(), pr = null;
             boolean enc = false;
-            while(cr!=null&&!enc){
-                if (cr.getDate()<newnode.getDate()) {
-                    if (pr==null) {
+            while (cr != null && !enc) {
+                enc = cr.getDate() < newnode.getDate();
+                if (enc) {
+                    if (pr == null) {
                         start.setNext(newnode);
                         newnode.setPrevious(start);
                         newnode.setNext(cr);
                         cr.setPrevious(newnode);
-                    }else{
+                    } else {
                         pr.setNext(newnode);
                         newnode.setPrevious(pr);
                         cr.setPrevious(newnode);
                         newnode.setNext(cr);
                     }
-                    enc = true;
-                }else{
+                } else {
                     pr = cr;
                     cr = cr.getNext();
                 }
@@ -187,7 +186,7 @@ public class DoubleList {
             }
         }
     }
-    
+
     public String listNext() {
         String list = "null <-> ";
         for (Node i = start; i != null;) {
