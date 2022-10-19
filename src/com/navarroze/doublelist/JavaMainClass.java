@@ -16,8 +16,13 @@ public class JavaMainClass {
         list1.addEnd(15);
         System.out.println("List next\n"
                 + list1.listNext());
-        System.out.println("List previous\n"
-                + list1.listPrevious());
+        list1.removeStart();
+        list1.removeStart();
+        list1.removeStart();
+        System.out.println("New List next\n"
+                + list1.listNext());
+//        System.out.println("List previous\n"
+//                + list1.listPrevious());
     }
     
 }

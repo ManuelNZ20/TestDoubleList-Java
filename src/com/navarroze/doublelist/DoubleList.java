@@ -35,7 +35,18 @@ public class DoubleList {
             end = newnode;
         }
     }
-
+    
+    public void removeStart()
+    {
+        if (start==end) {
+            start = end = null;
+        }else{
+            Node aux = start;
+            start = start.getNext();
+            start.setPrevious(null);
+            aux.setNext(null);
+        }
+    }
     public String listNext() {
         String list = "null <-> ";
         for (Node i = start; i != null;) {
