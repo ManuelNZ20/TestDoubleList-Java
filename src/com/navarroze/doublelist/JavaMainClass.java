@@ -18,9 +18,11 @@ public class JavaMainClass {
         list1.addEnd(15);
         list1.addEnd(1);
         list1.addEnd(1);
+        list1.ordered();
         System.out.println("List next\n"
                 + list1.listNext());
         list1.removeNode(1);
+        list1.ordered();
         System.out.println("List next\n"
                 + list1.listNext());
 //        list1.removeStart();
@@ -30,8 +32,8 @@ public class JavaMainClass {
 //        list1.removeEnd();
 //        System.out.println("New List next\n"
 //                + list1.listNext());
-        System.out.println("List previous\n"
-                + list1.listPrevious());
+//        System.out.println("List previous\n"
+//                + list1.listPrevious());
     }
     
 }

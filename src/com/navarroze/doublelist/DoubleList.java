@@ -94,6 +94,22 @@ public class DoubleList {
         }
     }
 
+    public void ordered(){
+        int aux = 0;
+        Node i = start,j;
+        while(i!=null){
+            j = i.getNext();
+            while(j!=null){
+                if (i.getDate()>j.getDate()) {
+                    aux = i.getDate();
+                    i.setDate(j.getDate());
+                    j.setDate(aux);
+                }
+                j = j.getNext();
+            }
+            i = i.getNext();
+        }
+    }
     public String listNext() {
         String list = "null <-> ";
         for (Node i = start; i != null;) {
